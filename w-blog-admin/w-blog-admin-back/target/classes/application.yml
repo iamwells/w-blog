@@ -1,7 +1,0 @@
-spring:
-  application:
-    name: w-blog-admin-back
-  profiles:
-    active: local,dev
-
-

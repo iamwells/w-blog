@@ -1,7 +1,0 @@
-database:
-  pgsql:
-    host: 121.62.22.121
-    port: 35432
-  redis:
-    host: 121.62.22.121
-    port: 26379
