@@ -1,0 +1,44 @@
+# IntelliJ IDEA 相关配置及项目生成文件
+.idea/
+*.iml
+out/
+*.ipr
+*.iws
+*.idea_modules/
+target/
+
+# Maven的本地仓库
+.m2/
+
+# Gradle的缓存和构建目录
+.gradle/
+build/
+
+# Java编译产生的字节码文件
+*.class
+application-remote.yml
+
+# Vue.js相关
+node_modules/
+dist/
+npm-debug.log*
+yarn-error.log
+
+# VSCode 配置及缓存文件
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!**/.vscode/*
+
+# 仅忽略上述目录下的临时文件，但不忽略工作区根目录下的.gitignore、README.md等文件
+!*/
+!*.*
+
+# MacOS系统文件
+.DS_Store
+
+# Windows系统临时文件
+Thumbs.db
+ehthumbs.db
+
