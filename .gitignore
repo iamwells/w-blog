@@ -1,12 +1,7 @@
 # IntelliJ IDEA 相关配置及项目生成文件
 .idea/
 !.idea/encodings.xml
-
-*.iml
 out/
-*.ipr
-*.iws
-*.idea_modules/
 target/
 
-
+*.iml
