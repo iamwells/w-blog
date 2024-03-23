@@ -58,7 +58,10 @@
             <groupId>com.github.ulisesbocchio</groupId>
             <artifactId>jasypt-spring-boot-starter</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>io.github.iamwells</groupId>
+            <artifactId>w-blog-common</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

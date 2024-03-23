@@ -4,17 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>io.github.iamwells</groupId>
-        <artifactId>w-blog</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.4</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
-
     <groupId>io.github.iamwells</groupId>
-    <artifactId>w-blog-commons</artifactId>
+    <artifactId>w-blog-common</artifactId>
     <version>0.0.1</version>
-    <name>w-blog-commons</name>
-    <description>w-blog-commons</description>
+    <name>w-blog-common</name>
+    <description>w-blog-common</description>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -23,6 +22,10 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

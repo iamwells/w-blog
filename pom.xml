@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.2</version>
+        <version>3.2.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io.github.iamwells</groupId>
@@ -15,7 +15,6 @@
     <description>w-blog</description>
     <modules>
         <module>w-blog-admin/w-blog-admin-back</module>
-        <module>w-blog-commons</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -28,6 +27,7 @@
         <postgresql.version>42.7.3</postgresql.version>
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
         <jasypt.boot.version>3.0.5</jasypt.boot.version>
+        <w-blog-common.version>0.0.1</w-blog-common.version>
     </properties>
 
     <dependencies>
@@ -66,11 +66,6 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-            <groupId>io.github.iamwells</groupId>
-            <artifactId>w-blog-commons</artifactId>
-            <version>0.0.1</version>
-        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -104,6 +99,11 @@
                 <groupId>com.github.ulisesbocchio</groupId>
                 <artifactId>jasypt-spring-boot-starter</artifactId>
                 <version>${jasypt.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.iamwells</groupId>
+                <artifactId>w-blog-common</artifactId>
+                <version>${w-blog-common.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

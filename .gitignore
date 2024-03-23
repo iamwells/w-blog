@@ -1,7 +1,15 @@
 # IntelliJ IDEA 相关配置及项目生成文件
-.idea/
-!.idea/encodings.xml
+.idea/*
 out/
 target/
-
 *.iml
+
+!.gitignore
+!.idea/.gitignore
+!.idea/encodings.xml
+!/.idea/compiler.xml
+!/.idea/encodings.xml
+!/.idea/jarRepositories.xml
+!/.idea/misc.xml
+!/.idea/vcs.xml
+
