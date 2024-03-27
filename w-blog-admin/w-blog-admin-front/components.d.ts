@@ -7,7 +7,6 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AAlert: typeof import('ant-design-vue/es')['Alert']
     AAvatar: typeof import('ant-design-vue/es')['Avatar']
     ABreadcrumb: typeof import('ant-design-vue/es')['Breadcrumb']
     ABreadcrumbItem: typeof import('ant-design-vue/es')['BreadcrumbItem']
@@ -30,9 +29,8 @@ declare module 'vue' {
     ALayoutSider: typeof import('ant-design-vue/es')['LayoutSider']
     AMenu: typeof import('ant-design-vue/es')['Menu']
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
-    APopover: typeof import('ant-design-vue/es')['Popover']
+      AModal: typeof import('ant-design-vue/es')['Modal']
     ARow: typeof import('ant-design-vue/es')['Row']
-    ArrowUpOutlined: typeof import('@ant-design/icons-vue')['ArrowUpOutlined']
     AStatistic: typeof import('ant-design-vue/es')['Statistic']
     ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
     ATabPane: typeof import('ant-design-vue/es')['TabPane']
@@ -40,13 +38,11 @@ declare module 'vue' {
     ATypographyLink: typeof import('ant-design-vue/es')['TypographyLink']
     ATypographyText: typeof import('ant-design-vue/es')['TypographyText']
     ATypographyTitle: typeof import('ant-design-vue/es')['TypographyTitle']
-    DownOutlined: typeof import('@ant-design/icons-vue')['DownOutlined']
     FileAddTwoTone: typeof import('@ant-design/icons-vue')['FileAddTwoTone']
     FileTextTwoTone: typeof import('@ant-design/icons-vue')['FileTextTwoTone']
     FlagTwoTone: typeof import('@ant-design/icons-vue')['FlagTwoTone']
     HeartTwoTone: typeof import('@ant-design/icons-vue')['HeartTwoTone']
     HighlightTwoTone: typeof import('@ant-design/icons-vue')['HighlightTwoTone']
-    HomeOutlined: typeof import('@ant-design/icons-vue')['HomeOutlined']
     LockOutlined: typeof import('@ant-design/icons-vue')['LockOutlined']
     LoginOutlined: typeof import('@ant-design/icons-vue')['LoginOutlined']
     RouterLink: typeof import('vue-router')['RouterLink']

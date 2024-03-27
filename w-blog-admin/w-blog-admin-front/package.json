@@ -19,6 +19,7 @@
     "ant-design-vue": "4.x",
     "axios": "^1.6.7",
     "dayjs": "^1.11.10",
+    "md-editor-v3": "^4.12.2",
     "nprogress": "^0.2.0",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",

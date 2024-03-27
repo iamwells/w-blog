@@ -1,4 +1,4 @@
-package io.github.iamwells.admin.config;
+package io.github.iamwells.admin.config.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.iamwells.commons.web.ResponseCommonEntity;

@@ -1,4 +1,4 @@
-package io.github.iamwells.admin.config;
+package io.github.iamwells.admin.config.security;
 
 import lombok.Getter;
 import lombok.Setter;

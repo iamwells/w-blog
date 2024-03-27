@@ -1,24 +1,31 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { Dayjs } from 'dayjs'
-import dayjs from 'dayjs'
-import {} from 'ant-design-vue/locale/'
+import {ref} from 'vue'
+import dayjs, {Dayjs} from 'dayjs'
+import ArticleEdit from '@/views/Article/ArticleEdit.vue'
+
 const calendarValue = ref<Dayjs>()
 const selectedDate = ref<Dayjs>()
-const cal = ref()
-console.log(cal)
-
 const onCalendarSelect = (value: Dayjs) => {
   selectedDate.value = value.locale(value.locale())
 }
 const onCalendarPanelChange = (value: Dayjs, mode: string) => {
   console.log(value, mode)
 }
-
 const resetDate = () => {
   const date = dayjs(Date.now())
   calendarValue.value = date
   selectedDate.value = date
+}
+
+const articleText = ref('你好')
+const articleEditorShow = ref(false)
+
+function openArticleEditor() {
+  articleEditorShow.value = true
+}
+
+function submitArticle() {
+  articleEditorShow.value = false
 }
 </script>
 
@@ -82,11 +89,20 @@ const resetDate = () => {
       :style="{
         right: '24px'
       }"
+      @click="openArticleEditor"
     >
       <template #icon>
         <FileAddTwoTone two-tone-color="#3177fc" />
       </template>
     </a-float-button>
+    <a-modal title="撰写文章" v-model:open="articleEditorShow" @ok="submitArticle" width="100%">
+      <a-form>
+        <a-form-item label="标题" name="title">
+          <a-input size="large" :allowClear="true"></a-input>
+        </a-form-item>
+      </a-form>
+      <ArticleEdit v-model:text="articleText"></ArticleEdit>
+    </a-modal>
   </div>
 </template>
 

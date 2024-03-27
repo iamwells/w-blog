@@ -1,20 +1,17 @@
-package io.github.iamwells.admin.config;
+package io.github.iamwells.admin.config.security;
 
 
 import io.github.iamwells.admin.entity.PermissionFun;
-import io.github.iamwells.admin.entity.Role;
 import io.github.iamwells.admin.service.PermissionFunService;
 import io.github.iamwells.admin.service.UserService;
 import io.github.iamwells.admin.util.GrantedAuthorityUtil;
 import io.github.iamwells.admin.vo.UserWithRolesAndPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
