@@ -22,10 +22,6 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-
-import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -101,7 +97,7 @@ public class SpringSecurityConfiguration {
         http.httpBasic(AbstractHttpConfigurer::disable);
         http.formLogin(AbstractHttpConfigurer::disable);
 
-        JsonWebTokenFilter jsonWebTokenFilter = new JsonWebTokenFilter(authProperties, jwtProperties,redissonClient);
+        JsonWebTokenFilter jsonWebTokenFilter = new JsonWebTokenFilter(authProperties, jwtProperties, redissonClient);
         http.addFilterBefore(jsonWebTokenFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();

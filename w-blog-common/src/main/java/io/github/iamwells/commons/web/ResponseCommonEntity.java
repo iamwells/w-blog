@@ -8,6 +8,7 @@ import java.util.Objects;
 
 /**
  * 统一返回实体
+ *
  * @param <T> data类型
  */
 public class ResponseCommonEntity<T> {

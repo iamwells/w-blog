@@ -16,7 +16,6 @@
     </resultMap>
 
 
-
     <select id="selectByUserId" resultType="io.github.iamwells.admin.entity.Role">
         select role_id, role_code, role_name, role_status, create_time, update_time
         from blog_role

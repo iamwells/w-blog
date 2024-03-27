@@ -1,12 +1,6 @@
 server:
   port: 9090
 
-jasypt:
-  encryptor:
-    password: 20240321
-    iv-generator-classname: org.jasypt.iv.NoIvGenerator
-    algorithm: PBEWithMD5AndDES
-
 spring:
   #  数据源和连接池
   datasource:
@@ -55,5 +49,3 @@ auth:
     - /sign/out
   remember-me: true
   remember-days: 15
-
-

@@ -1,7 +1,6 @@
 package io.github.iamwells.admin.properties.jwt;
 
 
-import io.github.iamwells.admin.properties.AuthProperties;
 import io.github.iamwells.admin.properties.ConfigPropBeans;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -5,29 +5,29 @@
 <mapper namespace="io.github.iamwells.admin.mapper.PermissionFunMapper">
 
     <resultMap id="BaseResultMap" type="io.github.iamwells.admin.entity.PermissionFun">
-            <id property="funId" column="fun_id" jdbcType="INTEGER"/>
-            <result property="funCode" column="fun_code" jdbcType="VARCHAR"/>
-            <result property="funName" column="fun_name" jdbcType="VARCHAR"/>
-            <result property="funStatus" column="fun_status" jdbcType="SMALLINT"/>
-            <result property="routeId" column="route_id" jdbcType="INTEGER"/>
-            <result property="deleted" column="is_deleted" jdbcType="SMALLINT"/>
-            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
-            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
-            <result property="version" column="version" jdbcType="INTEGER"/>
+        <id property="funId" column="fun_id" jdbcType="INTEGER"/>
+        <result property="funCode" column="fun_code" jdbcType="VARCHAR"/>
+        <result property="funName" column="fun_name" jdbcType="VARCHAR"/>
+        <result property="funStatus" column="fun_status" jdbcType="SMALLINT"/>
+        <result property="routeId" column="route_id" jdbcType="INTEGER"/>
+        <result property="deleted" column="is_deleted" jdbcType="SMALLINT"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="version" column="version" jdbcType="INTEGER"/>
     </resultMap>
-        <select id="selectPermissionFunListByRoles" resultType="io.github.iamwells.admin.entity.PermissionFun">
-            select *
-            from permission_fun
-            where fun_id in (
-            select distinct fun_id
-            from role_permission_fun
-            where role_id in
-            <foreach collection="roles" open="(" close=")" separator="," item="role" nullable="false">
-                #{role.roleId}
-            </foreach>
-            )
+    <select id="selectPermissionFunListByRoles" resultType="io.github.iamwells.admin.entity.PermissionFun">
+        select *
+        from permission_fun
+        where fun_id in (
+        select distinct fun_id
+        from role_permission_fun
+        where role_id in
+        <foreach collection="roles" open="(" close=")" separator="," item="role" nullable="false">
+            #{role.roleId}
+        </foreach>
+        )
 
-        </select>
+    </select>
 
 
 </mapper>
