@@ -15,7 +15,7 @@ import org.springframework.util.StringUtils;
 public class ControllerAspect {
 
     @Pointcut("@within(org.springframework.web.bind.annotation.RestController) || @annotation(org.springframework.web.bind.annotation.ResponseBody)")
-    public void pointcut() {
+    private void pointcut() {
     }
 
     @Around(value = "pointcut()")

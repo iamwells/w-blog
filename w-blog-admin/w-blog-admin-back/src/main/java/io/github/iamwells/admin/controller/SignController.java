@@ -8,6 +8,7 @@ import io.github.iamwells.admin.util.JwtUtil;
 import io.github.iamwells.admin.vo.LoginUser;
 import io.github.iamwells.admin.vo.UserWithRolesAndPermissions;
 import io.github.iamwells.commons.web.ResponseCommonEntity;
+import jakarta.validation.Valid;
 import org.redisson.api.RBucket;
 import org.redisson.api.RedissonClient;
 import org.redisson.client.codec.StringCodec;
@@ -42,7 +43,7 @@ public class SignController {
     }
 
     @PostMapping("in")
-    public ResponseCommonEntity<Object> on(@RequestBody LoginUser user, @RequestParam(required = false) Boolean rememberMe) {
+    public ResponseCommonEntity<Object> in(@RequestBody @Valid LoginUser user, @RequestParam(required = false) Boolean rememberMe) {
         Authentication authenticationToken =
                 new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
         authenticationToken = authenticationManager.authenticate(authenticationToken);

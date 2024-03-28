@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div>
+    <div class="mail-title">
+        W-Blog
+    </div>
+    <div class="mail-content">
+        <div class="top" th:text="${top}"></div>
+        <div class="center" th:text="${center}"></div>
+        <div class="bottom" th:text="${bottom}">仅用于登陆验证</div>
+    </div>
+</div>
+</body>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
+    .mail-title {
+        font-size: 3em;
+        padding: 15px;
+        color: #fff;
+        background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+    }
+
+    .mail-content {
+        padding: 15px;
+
+    }
+
+    .mail-content div {
+        margin: 15px;
+    }
+
+    .mail-content .top {
+        text-indent: 2em;
+        font-size: 1.5em;
+    }
+
+    .mail-content .center {
+        text-indent: 2em;
+        text-align: center;
+        font-size: 2em;
+        border: 1px solid silver;
+
+    }
+
+    .mail-content .bottom {
+        text-align: right;
+        color: silver;
+    }
+</style>
+</html>

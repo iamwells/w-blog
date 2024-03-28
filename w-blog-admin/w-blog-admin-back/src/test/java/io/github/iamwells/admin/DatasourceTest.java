@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.iamwells.admin.mapper.UserMapper;
 import io.github.iamwells.admin.properties.jwt.JwtHeader;
 import io.github.iamwells.admin.properties.jwt.JwtPayload;
-import io.github.iamwells.admin.service.EmailService;
+import io.github.iamwells.admin.service.MailService;
 import io.github.iamwells.admin.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,12 +34,12 @@ public class DatasourceTest {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    private EmailService emailService;
+    private MailService mailService;
 
 
     @Test
     public void test() {
-        emailService.sendSimple("你好");
+        mailService.sendCaptcha("iamwells@qq.com", "123456");
     }
 
 

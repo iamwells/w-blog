@@ -33,4 +33,10 @@ public class ConfigPropBeans {
     public AuthProperties authProperties() {
         return new AuthProperties();
     }
+
+    @Bean
+    @ConfigurationProperties(prefix = "mail")
+    public MailProperties mailProperties() {
+        return new MailProperties();
+    }
 }
