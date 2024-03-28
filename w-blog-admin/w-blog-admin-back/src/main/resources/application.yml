@@ -2,6 +2,4 @@ spring:
   application:
     name: w-blog-admin-back
   profiles:
-    active: local,dev
-
-
+    active: jasypt,dev,remote,datasource,mail
