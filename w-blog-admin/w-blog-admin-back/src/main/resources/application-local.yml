@@ -1,8 +1,11 @@
 database:
   pgsql:
+    username: postgres
+    password: test
     host: localhost
     port: 5432
   redis:
+    password: test
     host: localhost
     port: 6379
 
