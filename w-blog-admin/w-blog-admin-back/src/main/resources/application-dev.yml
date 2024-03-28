@@ -2,24 +2,11 @@ server:
   port: 9090
 
 spring:
-  #  数据源和连接池
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://${database.pgsql.host}:${database.pgsql.port}/w_blog
-    username: postgres
-    password: ENC(nghQaxCXJnoZg2VxyfogaEspwzijrMXh)
-    hikari:
-      maximum-pool-size: 17
-      minimum-idle: 17
-  data:
-    redis:
-      host: ${database.redis.host}
-      port: ${database.redis.port}
-      password: ENC(3fXZ7ozGdD/WYUUoxK7y7XBf/mG8kyvq)
+  #  序列化
   jackson:
     default-property-inclusion: non_empty
 
-#      mybatis-plus配置
+#  mybatis-plus配置
 mybatis-plus:
   global-config:
     db-config:
@@ -30,7 +17,7 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
 
-#    jwt 参数配置
+#  jwt 参数配置
 jwt:
   payload:
     issuer: ${spring.application.name}
@@ -40,7 +27,7 @@ jwt:
   signature:
     secret: test
 
-# 认证参数
+#  认证参数
 auth:
   token-header-name: wToken
   token-white-list:
