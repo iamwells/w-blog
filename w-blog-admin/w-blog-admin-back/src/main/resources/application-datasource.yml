@@ -1,0 +1,15 @@
+#  数据源和连接池
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${database.pgsql.host}:${database.pgsql.port}/w_blog
+    username: ${database.pgsql.username}
+    password: ${database.pgsql.password}
+    hikari:
+      maximum-pool-size: 17
+      minimum-idle: 17
+  data:
+    redis:
+      host: ${database.redis.host}
+      port: ${database.redis.port}
+      password: ${database.redis.password}
