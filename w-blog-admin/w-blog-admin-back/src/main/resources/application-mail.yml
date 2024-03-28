@@ -1,0 +1,8 @@
+spring:
+  mail:
+    host: smtp.163.com
+    username: iamwells@163.com
+    password: test
+    protocol: smtps
+    port: 465
+    test-connection: true
