@@ -1,7 +1,7 @@
 spring:
   mail:
-    host: smtp.163.com
-    username: iamwells@163.com
+    host: smtp.xyz.com
+    username: abc@xyz.com
     password: test
     protocol: smtps
     port: 465
