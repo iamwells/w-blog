@@ -5,4 +5,4 @@ spring:
     password: ${mail.password}
     protocol: ${mail.protocol}
     port: ${mail.protocol}
-    test-connection: true
+    test-connection: ${mail.test-connection}
