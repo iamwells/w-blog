@@ -1,7 +1,7 @@
 package io.github.iamwells.admin.filter;
 
 import io.github.iamwells.admin.properties.AuthProperties;
-import io.github.iamwells.admin.properties.jwt.JwtProperties;
+import io.github.iamwells.admin.properties.JwtProperties;
 import io.github.iamwells.admin.util.GrantedAuthorityUtil;
 import io.github.iamwells.admin.util.JwtThreadLocal;
 import io.github.iamwells.admin.util.JwtUtil;

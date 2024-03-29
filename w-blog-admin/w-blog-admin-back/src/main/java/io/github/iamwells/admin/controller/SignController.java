@@ -2,7 +2,7 @@ package io.github.iamwells.admin.controller;
 
 
 import io.github.iamwells.admin.entity.User;
-import io.github.iamwells.admin.properties.jwt.JwtProperties;
+import io.github.iamwells.admin.properties.JwtProperties;
 import io.github.iamwells.admin.util.JwtThreadLocal;
 import io.github.iamwells.admin.util.JwtUtil;
 import io.github.iamwells.admin.vo.LoginUser;
@@ -33,7 +33,7 @@ public class SignController {
 
     private final RedissonClient redissonClient;
 
-    @Value("${auth.remember-days}")
+    @Value("${blog.auth.remember-days}")
     private Integer rememberDays;
 
     public SignController(AuthenticationManager authenticationManager, JwtProperties jwtProperties, RedissonClient redissonClient) {

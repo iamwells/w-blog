@@ -3,7 +3,7 @@ package io.github.iamwells.admin.config;
 
 import io.github.iamwells.admin.filter.JsonWebTokenFilter;
 import io.github.iamwells.admin.properties.AuthProperties;
-import io.github.iamwells.admin.properties.jwt.JwtProperties;
+import io.github.iamwells.admin.properties.JwtProperties;
 import lombok.SneakyThrows;
 import org.redisson.api.RedissonClient;
 import org.springframework.context.annotation.Bean;

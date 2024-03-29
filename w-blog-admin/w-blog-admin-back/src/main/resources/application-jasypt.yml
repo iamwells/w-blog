@@ -1,5 +1,5 @@
 jasypt:
   encryptor:
-    password: ${jasypt.password}
-    iv-generator-classname: ${jasypt.iv-generator-classname}
-    algorithm: ${jasypt.algorithm}
+    password: ${blog.jasypt.password}
+    iv-generator-classname: ${blog.jasypt.iv-generator-classname}
+    algorithm: ${blog.jasypt.algorithm}

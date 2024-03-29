@@ -1,8 +1,8 @@
 spring:
   mail:
-    host: ${mail.host}
-    username: ${mail.username}
-    password: ${mail.password}
-    protocol: ${mail.protocol}
-    port: ${mail.protocol}
-    test-connection: ${mail.test-connection}
+    host: ${blog.mail.host}
+    username: ${blog.mail.username}
+    password: ${blog.mail.password}
+    protocol: ${blog.mail.protocol}
+    port: ${blog.mail.port}
+    test-connection: ${blog.mail.test-connection}
