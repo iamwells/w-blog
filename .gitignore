@@ -5,7 +5,6 @@ target/
 *.iml
 
 !.gitignore
-!.idea/.gitignore
 !.idea/encodings.xml
 !.idea/jarRepositories.xml
 
