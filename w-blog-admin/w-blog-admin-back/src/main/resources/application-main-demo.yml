@@ -1,0 +1,46 @@
+#  jwt 参数配置
+jwt:
+  payload:
+    issuer: ${spring.application.name}
+    sub: ${spring.application.name}
+    aud: back-user
+    exp: 2
+  signature:
+    secret: test
+
+#  认证参数
+auth:
+  token-header-name: wToken
+  token-white-list:
+    - /sign/up
+    - /sign/on
+    - /sign/out
+  remember-me: true
+  remember-days: 15
+
+
+# jasypt加密参数
+jasypt:
+  password:
+  algorithm:
+
+# 数据库配置
+database:
+  pgsql:
+    username:
+    password:
+    host:
+    port:
+  redis:
+    password:
+    host:
+    port:
+
+#邮箱配置
+mail:
+  host:
+  username:
+  password:
+  protocol:
+  port:
+  test-connection: true

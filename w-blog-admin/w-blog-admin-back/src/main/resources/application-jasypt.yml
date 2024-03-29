@@ -1,5 +1,5 @@
 jasypt:
   encryptor:
-    password: test
+    password: ${jasypt.password}
     iv-generator-classname: org.jasypt.iv.NoIvGenerator
-    algorithm: PBEWithMD5AndDES
+    algorithm: ${jasypt.algorithm}

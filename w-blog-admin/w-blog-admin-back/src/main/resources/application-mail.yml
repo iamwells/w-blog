@@ -1,8 +1,8 @@
 spring:
   mail:
-    host: smtp.xyz.com
-    username: abc@xyz.com
-    password: test
-    protocol: smtps
-    port: 465
+    host: ${mail.host}
+    username: ${mail.username}
+    password: ${mail.password}
+    protocol: ${mail.protocol}
+    port: ${mail.protocol}
     test-connection: true

@@ -17,22 +17,3 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
 
-#  jwt 参数配置
-jwt:
-  payload:
-    issuer: ${spring.application.name}
-    sub: ${spring.application.name}
-    aud: back-user
-    exp: 2
-  signature:
-    secret: test
-
-#  认证参数
-auth:
-  token-header-name: wToken
-  token-white-list:
-    - /sign/up
-    - /sign/on
-    - /sign/out
-  remember-me: true
-  remember-days: 15

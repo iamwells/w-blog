@@ -39,4 +39,10 @@ public class ConfigPropBeans {
     public MailProperties mailProperties() {
         return new MailProperties();
     }
+
+    @Bean
+    @ConfigurationProperties(prefix = "jasypt")
+    public JasyptProperties blogProperties() {
+        return new JasyptProperties();
+    }
 }
