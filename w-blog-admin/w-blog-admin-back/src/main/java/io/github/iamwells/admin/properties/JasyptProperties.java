@@ -11,6 +11,11 @@ public class JasyptProperties {
     private String password;
 
     /**
+     * 同jasypt.encryptor.iv-generator-classname
+     */
+    private String ivGeneratorClassname;
+
+    /**
      * 同jasypt.encryptor.algorithm
      */
     private String algorithm;

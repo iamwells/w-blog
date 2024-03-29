@@ -1,0 +1,163 @@
+{
+  "groups": [
+    {
+      "name": "auth",
+      "type": "io.github.iamwells.admin.properties.AuthProperties",
+      "sourceType": "io.github.iamwells.admin.properties.ConfigPropBeans",
+      "sourceMethod": "authProperties()"
+    },
+    {
+      "name": "jasypt",
+      "type": "io.github.iamwells.admin.properties.JasyptProperties",
+      "sourceType": "io.github.iamwells.admin.properties.ConfigPropBeans",
+      "sourceMethod": "blogProperties()"
+    },
+    {
+      "name": "jwt.header",
+      "type": "io.github.iamwells.admin.properties.jwt.JwtHeader",
+      "sourceType": "io.github.iamwells.admin.properties.ConfigPropBeans",
+      "sourceMethod": "jwtHeaderProperties()"
+    },
+    {
+      "name": "jwt.payload",
+      "type": "io.github.iamwells.admin.properties.jwt.JwtPayload",
+      "sourceType": "io.github.iamwells.admin.properties.ConfigPropBeans",
+      "sourceMethod": "jwtPayloadProperties()"
+    },
+    {
+      "name": "jwt.signature",
+      "type": "io.github.iamwells.admin.properties.jwt.JwtSignature",
+      "sourceType": "io.github.iamwells.admin.properties.ConfigPropBeans",
+      "sourceMethod": "jwtSignatureProperties()"
+    },
+    {
+      "name": "mail",
+      "type": "io.github.iamwells.admin.properties.MailProperties",
+      "sourceType": "io.github.iamwells.admin.properties.ConfigPropBeans",
+      "sourceMethod": "mailProperties()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "auth.remember-days",
+      "type": "java.lang.Integer",
+      "description": "保持登录时间",
+      "sourceType": "io.github.iamwells.admin.properties.AuthProperties"
+    },
+    {
+      "name": "auth.remember-me",
+      "type": "java.lang.Boolean",
+      "description": "保持登录; 为true时仅开放功能，需要前端发送rememberMe参数确认才可保持登录",
+      "sourceType": "io.github.iamwells.admin.properties.AuthProperties"
+    },
+    {
+      "name": "auth.token-header-name",
+      "type": "java.lang.String",
+      "description": "token请求头头名称",
+      "sourceType": "io.github.iamwells.admin.properties.AuthProperties"
+    },
+    {
+      "name": "auth.token-white-list",
+      "type": "java.util.List<java.lang.String>",
+      "description": "token认证白名单",
+      "sourceType": "io.github.iamwells.admin.properties.AuthProperties"
+    },
+    {
+      "name": "jasypt.algorithm",
+      "type": "java.lang.String",
+      "description": "同jasypt.encryptor.algorithm",
+      "sourceType": "io.github.iamwells.admin.properties.JasyptProperties"
+    },
+    {
+      "name": "jasypt.iv-generator-classname",
+      "type": "java.lang.String",
+      "description": "同jasypt.encryptor.iv-generator-classname",
+      "sourceType": "io.github.iamwells.admin.properties.JasyptProperties"
+    },
+    {
+      "name": "jasypt.password",
+      "type": "java.lang.String",
+      "description": "同jasypt.encryptor.password",
+      "sourceType": "io.github.iamwells.admin.properties.JasyptProperties"
+    },
+    {
+      "name": "jwt.header.typ",
+      "type": "java.lang.String",
+      "description": "类型",
+      "sourceType": "io.github.iamwells.admin.properties.jwt.JwtHeader"
+    },
+    {
+      "name": "jwt.payload.aud",
+      "type": "java.lang.String",
+      "description": "目标对象",
+      "sourceType": "io.github.iamwells.admin.properties.jwt.JwtPayload"
+    },
+    {
+      "name": "jwt.payload.exp",
+      "type": "java.lang.Float",
+      "description": "过期时间（小时）",
+      "sourceType": "io.github.iamwells.admin.properties.jwt.JwtPayload"
+    },
+    {
+      "name": "jwt.payload.issuer",
+      "type": "java.lang.String",
+      "description": "发布者",
+      "sourceType": "io.github.iamwells.admin.properties.jwt.JwtPayload"
+    },
+    {
+      "name": "jwt.payload.sub",
+      "type": "java.lang.String",
+      "description": "主题",
+      "sourceType": "io.github.iamwells.admin.properties.jwt.JwtPayload"
+    },
+    {
+      "name": "jwt.signature.alg",
+      "type": "java.lang.String",
+      "description": "加密算法",
+      "sourceType": "io.github.iamwells.admin.properties.jwt.JwtSignature"
+    },
+    {
+      "name": "jwt.signature.secret",
+      "type": "java.lang.String",
+      "description": "密钥",
+      "sourceType": "io.github.iamwells.admin.properties.jwt.JwtSignature"
+    },
+    {
+      "name": "mail.host",
+      "type": "java.lang.String",
+      "description": "邮件发送服务器主机host，参考spring.mail.host",
+      "sourceType": "io.github.iamwells.admin.properties.MailProperties"
+    },
+    {
+      "name": "mail.password",
+      "type": "java.lang.String",
+      "description": "邮件密码或token，参考spring.mail.password",
+      "sourceType": "io.github.iamwells.admin.properties.MailProperties"
+    },
+    {
+      "name": "mail.port",
+      "type": "java.lang.Integer",
+      "description": "邮件服务器端口号，参考spring.mail.port",
+      "sourceType": "io.github.iamwells.admin.properties.MailProperties"
+    },
+    {
+      "name": "mail.protocol",
+      "type": "java.lang.String",
+      "description": "邮件服务器协议，参考spring.mail.protocol",
+      "sourceType": "io.github.iamwells.admin.properties.MailProperties"
+    },
+    {
+      "name": "mail.test-connection",
+      "type": "java.lang.Boolean",
+      "description": "启动时是否开启邮箱连接测试，参考spring.mail.test-connection",
+      "sourceType": "io.github.iamwells.admin.properties.MailProperties"
+    },
+    {
+      "name": "mail.username",
+      "type": "java.lang.String",
+      "description": "邮件用户名，参考spring.mail.username",
+      "sourceType": "io.github.iamwells.admin.properties.MailProperties"
+    }
+  ],
+  "hints": []
+}
