@@ -25,9 +25,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <postgresql.version>42.7.3</postgresql.version>
+        <redisson.version>3.26.1</redisson.version>
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
         <jasypt.boot.version>3.0.5</jasypt.boot.version>
+        <jose4j.version>0.9.4</jose4j.version>
+        <bcpkix.version>1.77</bcpkix.version>
         <w-blog-common.version>0.0.1</w-blog-common.version>
+        <hanlp.version>portable-1.8.4</hanlp.version>
     </properties>
 
     <dependencies>
@@ -66,6 +70,8 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
         </dependency>
+
+
     </dependencies>
 
     <dependencyManagement>
@@ -83,17 +89,17 @@
             <dependency>
                 <groupId>org.bouncycastle</groupId>
                 <artifactId>bcpkix-jdk18on</artifactId>
-                <version>1.77</version>
+                <version>${bcpkix.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.bitbucket.b_c</groupId>
                 <artifactId>jose4j</artifactId>
-                <version>0.9.4</version>
+                <version>${jose4j.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson-spring-boot-starter</artifactId>
-                <version>3.26.1</version>
+                <version>${redisson.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.ulisesbocchio</groupId>
@@ -105,7 +111,14 @@
                 <artifactId>w-blog-common</artifactId>
                 <version>${w-blog-common.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.hankcs</groupId>
+                <artifactId>hanlp</artifactId>
+                <version>${hanlp.version}</version>
+            </dependency>
         </dependencies>
+
     </dependencyManagement>
 
     <build>
