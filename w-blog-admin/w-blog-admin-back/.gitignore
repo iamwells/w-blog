@@ -1,1 +1,3 @@
 application-main.yml
+/src/main/resources/HanLP/data/model/
+/src/main/resources/HanLP/data/dictionary/
