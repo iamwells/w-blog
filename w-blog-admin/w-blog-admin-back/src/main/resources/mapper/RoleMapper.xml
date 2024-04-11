@@ -21,7 +21,7 @@
         from blog_role
         where role_id
             in (select role_id
-                from user_role
+                from user_role_relations
                 where user_id = #{id}
                   and is_deleted = 0)
           and is_deleted = 0;

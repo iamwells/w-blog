@@ -16,17 +16,19 @@
         <result property="version" column="version" jdbcType="INTEGER"/>
     </resultMap>
     <select id="selectPermissionFunListByRoles" resultType="io.github.iamwells.admin.entity.PermissionFun">
-        select *
+        select
+        fun_id, fun_code, fun_name, fun_status, route_id, create_time, update_time
         from permission_fun
         where fun_id in (
         select distinct fun_id
-        from role_permission_fun
+        from role_permission_fun_relations
         where role_id in
         <foreach collection="roles" open="(" close=")" separator="," item="role" nullable="false">
             #{role.roleId}
         </foreach>
         )
-
+        and is_deleted = 1
+        and fun_status = 1
     </select>
 
 
