@@ -1,6 +1,7 @@
 package io.github.iamwells.admin.service.impl;
 
 import io.github.iamwells.admin.service.MailService;
+import io.github.iamwells.admin.util.MailMessageBuilder;
 import io.github.iamwells.commons.web.ResponseCommonEntity;
 import jakarta.annotation.Resource;
 import jakarta.mail.MessagingException;
@@ -41,26 +42,24 @@ public class MailServiceImpl implements MailService {
     @Value("${spring.mail.username}")
     private String from;
 
+    @Resource
+    private MailMessageBuilder mailMessageBuilder;
+
 
     @Override
     public void sendSimple(List<String> receivers, String subject, String text, File attachment, String attachmentName) {
+
         try {
-            MimeMessage message = mailSender.createMimeMessage();
-            MimeMessageHelper helper = new MimeMessageHelper(message, true);
-            helper.setFrom(from);
-            for (String receiver : receivers) {
-                helper.addTo(receiver);
-            }
-            helper.setSubject(subject);
-            helper.setText(text);
-            Optional.ofNullable(attachment).ifPresent(file -> {
-                try {
-                    String finalAttachmentName = Optional.ofNullable(attachmentName).orElse(attachment.getName());
-                    helper.addAttachment(finalAttachmentName, file);
-                } catch (MessagingException e) {
-                    throw new RuntimeException(e);
-                }
-            });
+            mailMessageBuilder = Optional.ofNullable(mailMessageBuilder).orElseGet(() -> new MailMessageBuilder(mailSender));
+            MimeMessage message = mailMessageBuilder.setFromIfEmpty(from)
+                    .setReceivers(receivers)
+                    .setSubject(subject)
+                    .setText(text)
+                    .setHtml(true)
+                    .setAttachment(attachment)
+                    .setAttachmentName(attachmentName)
+                    .build();
+
             mailSender.send(message);
         } catch (MessagingException e) {
             throw new RuntimeException(e);
