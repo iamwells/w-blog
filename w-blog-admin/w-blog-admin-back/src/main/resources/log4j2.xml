@@ -1,44 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN">
+<Configuration status="DEBUG">
+    <Properties>
+        <Property name="logPattern">%d{yyyy-MM-dd'T'HH:mm:ss.SSSZZ} %5level %pid --- [%15t] %-40c : %msg%n</Property>
+        <Property name="logPatternWithColor">%d{yyyy-MM-dd'T'HH:mm:ss.SSSZZ} %highlight{%5level} %style{%pid}{magenta} --- [%15t] %style{%-40c}{cyan} : %msg%n</Property>
+        <Property name="logFileDir">logs/admin</Property>
+        <Property name="logFileMiddleDir">%d{yyyy-MM}</Property>
+        <Property name="logFilePatternSuffix">%d{yyyy-MM-dd}.log</Property>
+        <Property name="logFileInterval">1</Property>
+        <Property name="logFileTimeModulate">true</Property>
+    </Properties>
     <Appenders>
         <!-- 控制台打印 -->
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <PatternLayout pattern="${logPatternWithColor}"/>
         </Console>
 
         <!-- 日志文件写入，分别保存为 info 级别、warn 级别和 error 级别 -->
-        <RollingFile name="InfoFile" fileName="logs/info.log" filePattern="logs/info-%d{yyyy-MM-dd}.log">
+        <RollingFile name="InfoFile" fileName="${logFileDir}/info.log" filePattern="${logFileDir}/${logFileMiddleDir}/info-${logFilePatternSuffix}}">
             <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <PatternLayout pattern="${logPattern}"/>
             <Policies>
-                <TimeBasedTriggeringPolicy/>
+                <TimeBasedTriggeringPolicy interval="${logFileInterval}" modulate="${logFileTimeModulate}"/>
             </Policies>
         </RollingFile>
 
-        <RollingFile name="WarnFile" fileName="logs/warn.log" filePattern="logs/warn-%d{yyyy-MM-dd}.log">
+        <RollingFile name="WarnFile" fileName="${logFileDir}/warn.log" filePattern="${logFileDir}/${logFileMiddleDir}/warn-${logFilePatternSuffix}}">
             <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <PatternLayout pattern="${logPattern}"/>
             <Policies>
-                <TimeBasedTriggeringPolicy/>
+                <TimeBasedTriggeringPolicy interval="${logFileInterval}" modulate="${logFileTimeModulate}"/>
             </Policies>
         </RollingFile>
 
-        <RollingFile name="ErrorFile" fileName="logs/error.log" filePattern="logs/error-%d{yyyy-MM-dd}.log">
+        <RollingFile name="ErrorFile" fileName="${logFileDir}/error.log" filePattern="${logFileDir}/${logFileMiddleDir}/error-${logFilePatternSuffix}}">
             <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <PatternLayout pattern="${logPattern}"/>
             <Policies>
-                <TimeBasedTriggeringPolicy/>
+                <TimeBasedTriggeringPolicy interval="${logFileInterval}" modulate="${logFileTimeModulate}"/>
             </Policies>
         </RollingFile>
+
+        <Async name="Async">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="InfoFile"/>
+            <AppenderRef ref="WarnFile"/>
+            <AppenderRef ref="ErrorFile"/>
+        </Async>
     </Appenders>
 
     <Loggers>
         <!-- 定义一个根日志记录器，并将所有 Appender 关联到根日志记录器 -->
         <Root level="debug">
-            <AppenderRef ref="Console"/>
-            <AppenderRef ref="InfoFile"/>
-            <AppenderRef ref="WarnFile"/>
-            <AppenderRef ref="ErrorFile"/>
+            <AppenderRef ref="Async"/>
         </Root>
     </Loggers>
 </Configuration>
