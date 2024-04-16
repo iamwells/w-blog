@@ -9,6 +9,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,7 +44,15 @@ public class MailMessageBuilder {
     }
 
     public MailMessageBuilder setFromIfEmpty(String from) {
-        this.from = Optional.of(this.from).orElse(from);
+        this.from = Optional.ofNullable(this.from).orElse(from);
+        return this;
+    }
+
+    public MailMessageBuilder addTo(String to) {
+        if (this.receivers == null) {
+            this.receivers = new ArrayList<>();
+        }
+        this.receivers.add(to);
         return this;
     }
 
@@ -103,6 +112,8 @@ public class MailMessageBuilder {
 
         helper.setSubject(subject);
 
+        html = html != null && html;
+
         helper.setText(text, html);
 
         Optional.ofNullable(attachment).ifPresent(file -> {
@@ -113,21 +124,10 @@ public class MailMessageBuilder {
                 throw new RuntimeException(e);
             }
         });
-        Optional.ofNullable(replyTo).ifPresentOrElse(replyToStr -> {
-            try {
-                helper.setReplyTo(replyToStr);
-            } catch (MessagingException e) {
-                throw new RuntimeException(e);
-            }
-        }, () -> {
-            if (replyTo.isEmpty()) {
-                try {
-                    helper.setReplyTo(from);
-                } catch (MessagingException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
+
+        replyTo = (replyTo == null || replyTo.isEmpty()) ? from : replyTo;
+        helper.setReplyTo(replyTo);
+
         return message;
     }
 

@@ -11,7 +11,6 @@ import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
@@ -74,12 +73,15 @@ public class MailServiceImpl implements MailService {
         context.setVariable("bottom", "仅用于登录验证");
         String mailTemplate = templateEngine.process("mailTemplate", context);
         try {
-            MimeMessage message = mailSender.createMimeMessage();
-            MimeMessageHelper helper = new MimeMessageHelper(message, true);
-            helper.setFrom(from);
-            helper.setTo(to);
-            helper.setSubject("验证码（来自W-Blog）");
-            helper.setText(mailTemplate, true);
+
+            mailMessageBuilder = Optional.ofNullable(mailMessageBuilder).orElseGet(() -> new MailMessageBuilder(mailSender));
+            MimeMessage message = mailMessageBuilder.setFromIfEmpty(from)
+                    .addTo(to)
+                    .setSubject("验证码 —— W-Blog")
+                    .setText(mailTemplate)
+                    .setHtml(true)
+                    .build();
+
             RMap<Object, Object> map = redissonClient.getMap("captcha:" + to + ":");
             String uuid = UUID.randomUUID().toString().replace("-", "");
             map.expire(Duration.ofMinutes(5));
