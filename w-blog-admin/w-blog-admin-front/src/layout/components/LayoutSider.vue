@@ -72,7 +72,6 @@ function toDashboard(key: any) {
   text-align: center;
   line-height: 32px;
   user-select: none;
-  
 }
 .site-layout .site-layout-background {
   background: #fff;

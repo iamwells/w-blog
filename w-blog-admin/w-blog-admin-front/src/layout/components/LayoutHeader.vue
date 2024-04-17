@@ -34,6 +34,4 @@ function logout() {
   </a-layout-header>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

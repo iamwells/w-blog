@@ -6,7 +6,7 @@
       <a-typography-title class="app-title">W-Blog管理后台</a-typography-title>
       <RouterView v-slot="{ Component }">
         <Transition>
-          <component :is="Component"/>
+          <component :is="Component" />
         </Transition>
       </RouterView>
     </div>

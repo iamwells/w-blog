@@ -3,9 +3,8 @@ import { reactive, ref, computed, toRaw } from 'vue'
 import { useAuthStore } from '@/stores/auth'
 import { useSignPageStore } from '@/stores/config/signPage'
 import { storeToRefs } from 'pinia'
-import { useRouter } from 'vue-router';
-import { message } from 'ant-design-vue';
-
+import { useRouter } from 'vue-router'
+import { message } from 'ant-design-vue'
 
 const router = useRouter()
 const authStore = useAuthStore()

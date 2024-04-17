@@ -2,7 +2,6 @@ import { ref } from 'vue'
 import { defineStore, type Store } from 'pinia'
 import { postSignIn } from '@/views/Sign/api/index'
 
-
 interface User {
   username?: string
 }
