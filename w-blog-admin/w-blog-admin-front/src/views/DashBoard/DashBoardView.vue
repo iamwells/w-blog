@@ -2,6 +2,11 @@
 import {ref} from 'vue'
 import dayjs, {Dayjs} from 'dayjs'
 import ArticleEdit from '@/views/Article/ArticleEdit.vue'
+import axios from '@/utils/axios'
+
+axios.get('/sign/details').then((resp) => {
+  console.log('@@@details', resp)
+})
 
 const calendarValue = ref<Dayjs>()
 const selectedDate = ref<Dayjs>()

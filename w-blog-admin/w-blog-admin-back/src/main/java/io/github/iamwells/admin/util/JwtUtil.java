@@ -23,6 +23,7 @@ import org.jose4j.jwt.consumer.JwtContext;
 import org.jose4j.keys.HmacKey;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Optional;
 
 public class JwtUtil {
 
@@ -39,9 +40,9 @@ public class JwtUtil {
     }
 
     public static String generate(User user, JwtProperties jwtProperties) {
-        JwtHeader header = jwtProperties.getHeader();
-        JwtPayload payload = jwtProperties.getPayload();
-        JwtSignature signature = jwtProperties.getSignature();
+        JwtHeader header = Optional.ofNullable(jwtProperties.getHeader()).orElse(new JwtHeader());
+        JwtPayload payload = Optional.ofNullable(jwtProperties.getPayload()).orElse(new JwtPayload());
+        JwtSignature signature = Optional.ofNullable(jwtProperties.getSignature()).orElse(new JwtSignature());
         return generate(user, header, payload, signature);
     }
 
