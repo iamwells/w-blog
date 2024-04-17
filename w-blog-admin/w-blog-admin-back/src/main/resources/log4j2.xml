@@ -16,7 +16,7 @@
         </Console>
 
         <!-- 日志文件写入，分别保存为 info 级别、warn 级别和 error 级别 -->
-        <RollingFile name="InfoFile" fileName="${logFileDir}/info.log" filePattern="${logFileDir}/${logFileMiddleDir}/info-${logFilePatternSuffix}}">
+        <RollingFile name="InfoFile" fileName="${logFileDir}/info.log" filePattern="${logFileDir}/${logFileMiddleDir}/info-${logFilePatternSuffix}">
             <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="${logPattern}"/>
             <Policies>
@@ -24,7 +24,7 @@
             </Policies>
         </RollingFile>
 
-        <RollingFile name="WarnFile" fileName="${logFileDir}/warn.log" filePattern="${logFileDir}/${logFileMiddleDir}/warn-${logFilePatternSuffix}}">
+        <RollingFile name="WarnFile" fileName="${logFileDir}/warn.log" filePattern="${logFileDir}/${logFileMiddleDir}/warn-${logFilePatternSuffix}">
             <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="${logPattern}"/>
             <Policies>
@@ -32,7 +32,7 @@
             </Policies>
         </RollingFile>
 
-        <RollingFile name="ErrorFile" fileName="${logFileDir}/error.log" filePattern="${logFileDir}/${logFileMiddleDir}/error-${logFilePatternSuffix}}">
+        <RollingFile name="ErrorFile" fileName="${logFileDir}/error.log" filePattern="${logFileDir}/${logFileMiddleDir}/error-${logFilePatternSuffix}">
             <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="${logPattern}"/>
             <Policies>
