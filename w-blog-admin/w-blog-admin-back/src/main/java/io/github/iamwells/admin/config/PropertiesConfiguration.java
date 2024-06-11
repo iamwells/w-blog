@@ -1,12 +1,10 @@
 package io.github.iamwells.admin.config;
 
-import io.github.iamwells.admin.properties.AuthProperties;
-import io.github.iamwells.admin.properties.JasyptProperties;
-import io.github.iamwells.admin.properties.JwtProperties;
-import io.github.iamwells.admin.properties.MailProperties;
+import io.github.iamwells.admin.properties.*;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.cors.CorsConfiguration;
 
 @Configuration
 public class PropertiesConfiguration {
@@ -33,5 +31,11 @@ public class PropertiesConfiguration {
     @ConfigurationProperties(prefix = "blog.jasypt")
     public JasyptProperties blogProperties() {
         return new JasyptProperties();
+    }
+
+    @Bean
+    @ConfigurationProperties("blog.minio")
+    public MinIOProperties minIOProperties() {
+        return new MinIOProperties();
     }
 }

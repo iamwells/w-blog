@@ -80,9 +80,9 @@ public class SignController {
     public ResponseCommonEntity<Object> getUserDetails() {
         SecurityContext context = SecurityContextHolder.getContext();
         Authentication authentication = context.getAuthentication();
-        UserWithRolesAndPermissions details = null;
+        Object details = null;
         if (authentication != null && authentication.isAuthenticated()) {
-            details = (UserWithRolesAndPermissions) authentication.getDetails();
+            details = authentication.getDetails();
         }
         return ResponseCommonEntity.OK(details);
     }

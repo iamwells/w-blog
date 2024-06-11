@@ -8,6 +8,7 @@ import lombok.SneakyThrows;
 import org.redisson.api.RedissonClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -22,6 +23,11 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
@@ -45,22 +51,23 @@ public class SpringSecurityConfiguration {
                                            AuthenticationEntryPoint authenticationEntryPoint,
                                            JwtProperties jwtProperties,
                                            AuthProperties authProperties,
-                                           RedissonClient redissonClient
+                                           RedissonClient redissonClient,
+                                           Environment env
     ) throws Exception {
 
         http.authorizeHttpRequests(
                 authorizationManagerRequestMatcherRegistry ->
                         authorizationManagerRequestMatcherRegistry
-//                                .requestMatchers(
-//                                        "/",
-//                                        "/sign/in",
-//                                        "/sign/up",
-//                                        "/sign/out",
-//                                        "/favicon.ico",
-//                                        "/img/**"
-//                                ).permitAll()
-//                                .anyRequest().authenticated()
-                                .anyRequest().permitAll()
+                                .requestMatchers(
+                                        "/",
+                                        "/sign/in",
+                                        "/sign/up",
+                                        "/sign/out",
+                                        "/favicon.ico",
+                                        "/img/**"
+                                ).permitAll()
+                                .anyRequest().authenticated()
+//                                .anyRequest().permitAll()
         );
 
         http.exceptionHandling(
@@ -78,19 +85,20 @@ public class SpringSecurityConfiguration {
         );
 
 
-//        http.cors(
-//                httpSecurityCorsConfigurer -> {
-//                    CorsConfigurationSource source = request -> {
-//                        CorsConfiguration configuration = new CorsConfiguration();
-//                        configuration.setAllowedHeaders(List.of("*"));
-//                        configuration.setAllowedOrigins(List.of("*"));
-//                        configuration.setAllowedMethods(List.of("*"));
-//                        return configuration;
-//                    };
-//                    httpSecurityCorsConfigurer.configurationSource(source);
-//                });
-
-        http.cors(Customizer.withDefaults());
+        if (Arrays.stream(env.getActiveProfiles()).toList().contains("dev")) {
+            http.cors(httpSecurityCorsConfigurer -> {
+                httpSecurityCorsConfigurer.configurationSource(request -> {
+                    CorsConfiguration corsConfiguration = new CorsConfiguration();
+                    corsConfiguration.addAllowedOrigin("http://localhost:5173");
+                    corsConfiguration.addAllowedHeader("*");
+                    corsConfiguration.addAllowedMethod("*");
+                    corsConfiguration.setAllowCredentials(true);
+                    return corsConfiguration;
+                });
+            });
+        }else {
+            http.cors(Customizer.withDefaults());
+        }
 
         http.csrf(AbstractHttpConfigurer::disable);
 

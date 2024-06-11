@@ -9,10 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @Slf4j
 public class BlogAdminApplication {
     public static void main(String[] args) {
-        try {
-            SpringApplication.run(BlogAdminApplication.class, args);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        SpringApplication.run(BlogAdminApplication.class, args);
     }
 }

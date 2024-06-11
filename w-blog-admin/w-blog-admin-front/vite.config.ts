@@ -8,11 +8,9 @@ import Components from 'unplugin-vue-components/vite'
 import {AntDesignVueResolver} from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
-export default defineConfig((env) => {
-  console.log('@@@current mode', env.mode)
-  process.env = {...process.env, ...loadEnv(env.mode, process.cwd())}
-
-  return {
+export default ({mode}: { mode: string }) => {
+  process.env = {...process.env, ...loadEnv(mode, process.cwd())}
+  return defineConfig({
     plugins: [
       vue(),
       vueJsx(),
@@ -40,5 +38,5 @@ export default defineConfig((env) => {
         }
       }
     }
-  }
-})
+  })
+}

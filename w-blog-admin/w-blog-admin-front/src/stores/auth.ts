@@ -14,11 +14,8 @@ export const useAuthStore = defineStore(
     const toSignInFrom = ref<string | undefined>()
     const whiteList = ref<string[]>(['/sign/in', '/sign/up'])
 
-    function isAuthenticed(): boolean {
-      if (token.value) {
-        return true
-      }
-      return false
+    function isAuthenticated(): boolean {
+      return !!token.value;
     }
 
     function signIn(username: string, password: string, rememberMe: boolean) {
@@ -32,7 +29,7 @@ export const useAuthStore = defineStore(
       token.value = ''
     }
 
-    return { token, user, toSignInFrom, whiteList, signIn, signOut, isAuthenticed }
+    return { token, user, toSignInFrom, whiteList, signIn, signOut, isAuthenticated }
   },
   {
     persist: true
