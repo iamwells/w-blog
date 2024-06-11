@@ -8,9 +8,7 @@ import Components from 'unplugin-vue-components/vite'
 import {AntDesignVueResolver} from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
-export default ({mode}: { mode: string }) => {
-  process.env = {...process.env, ...loadEnv(mode, process.cwd())}
-  return defineConfig({
+export default {
     plugins: [
       vue(),
       vueJsx(),
@@ -28,15 +26,5 @@ export default ({mode}: { mode: string }) => {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url))
       }
-    },
-    server: {
-      proxy: {
-        '/api': {
-          target: process.env.VITE_BACK_BASE_URL,
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, '')
-        }
-      }
     }
-  })
 }
